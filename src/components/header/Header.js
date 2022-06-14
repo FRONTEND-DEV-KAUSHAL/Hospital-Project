@@ -29,14 +29,20 @@ function Header(props) {
       <nav id="navbar" className="navbar order-last order-lg-0">
         <ul>
           <li>
-            <NavLink ClassName="nav-link scrollto active" to="/">Home</NavLink>
+            <NavLink ClassName="nav-link scrollto" to="/">Home</NavLink>
             </li>
           <li>
-          <NavLink ClassName="nav-link scrollto active" to="/Departments">Departments</NavLink>
+          <NavLink ClassName="nav-link scrollto" to="/Departments">Departments</NavLink>
           </li>
-          <li><a className="nav-link scrollto" href="./pages/doctors.html">Doctors</a></li>
-          <li><a className="nav-link scrollto " href="./pages/about.html">About</a></li>
-          <li><a className="nav-link scrollto" href="./pages/contact.html">Contact</a></li>
+          <li>
+            <NavLink className="nav-link scrollto" to="/Doctors">Doctors</NavLink>
+          </li>
+          <li>
+            <NavLink className="nav-link scrollto" to="/About">About</NavLink>
+          </li>
+          <li>
+          <NavLink className="nav-link scrollto" to="/Contect">Contact</NavLink>
+          </li>
         </ul>
         <i className="bi bi-list mobile-nav-toggle" />
       </nav>

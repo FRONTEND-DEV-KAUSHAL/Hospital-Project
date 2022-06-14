@@ -3,6 +3,10 @@ import Header from "./components/header/Header";
 import Home from "./container/home/Home";
 import { Route, Switch } from 'react-router-dom'
 import Department from "./container/departments/Department";
+import Doctors from "./container/doctors/Doctors";
+import About from "./container/about/About";
+import Contect from "./container/contect/Contect";
+
 
 
 function App() {
@@ -12,6 +16,9 @@ function App() {
     <Switch>
       <Route path={'/'} exact component={Home}></Route>
       <Route path={'/Departments'} exact component={Department}></Route>
+      <Route path={'/Doctors'} exact component={Doctors}></Route>
+      <Route path={'/About'} exact component={About}></Route>
+      <Route path={'/Contect'} exact component={Contect}></Route>
     </Switch>
     <Home/>
     <Footer/>
@@ -20,4 +27,3 @@ function App() {
 }
 
 export default App;
-''
