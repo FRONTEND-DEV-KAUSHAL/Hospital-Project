@@ -7,6 +7,7 @@ import Doctors from "./container/doctors/Doctors";
 import About from "./container/about/About";
 import Contect from "./container/contect/Contect";
 import Auth from "./container/auth/Auth";
+import Medicine from "./container/medicine/Medicine";
 
 
 
@@ -21,8 +22,8 @@ function App() {
       <Route path={'/About'} exact component={About}></Route>
       <Route path={'/Contect'} exact component={Contect}></Route>
       <Route path={'/Auth'} exact component={Auth}></Route>
+      <Route path={'/Medicine'} exact component={Medicine}></Route>
     </Switch>
-    <Footer/>
     </>
   );
 }

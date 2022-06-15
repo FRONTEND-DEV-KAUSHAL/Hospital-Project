@@ -52,17 +52,17 @@ function Auth(props) {
                         {
                             reset === true?
                             <>
-                            <p className='d-inline-block'>Already Have An Account</p><button onClick={() => setUsertype('login')}>Login</button>
+                            <p className='d-inline-block'>Already Have An Account</p><button onClick={() => {setReset(false);setUsertype('login')}}>Login</button>
                             </>
                             :
                             usertype === 'login'?
                             <>
                                 <p className='d-inline-block'>New User? Create An Account</p><button className='ms-3' onClick={() => setUsertype('signup')}>Signup</button>
-                                <p className='d-inline-block'>Forget Password?</p><button className='ms-3' onClick={() => setReset(true)}>Go</button>
+                                <button className='ms-3' onClick={() => setReset(true)}>Forget Password ?</button>
                             </>
                             :
                             <>
-                            <p>Already Have An Account</p><button onClick={() => setUsertype('login')}>Login</button>
+                            <p className='d-inline-block'>Already Have An Account</p><button onClick={() => {setReset(false);setUsertype('login')}}>Login</button>
                         </>
                         }
                     </div>
