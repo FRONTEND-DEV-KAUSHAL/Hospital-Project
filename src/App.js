@@ -8,6 +8,8 @@ import About from "./container/about/About";
 import Contect from "./container/contect/Contect";
 import Auth from "./container/auth/Auth";
 import Medicine from "./container/medicine/Medicine";
+import Pass from "./components/Pass";
+import Refexample from "./container/RefExample/Refexample";
 
 
 
@@ -23,7 +25,11 @@ function App() {
       <Route path={'/Contect'} exact component={Contect}></Route>
       <Route path={'/Auth'} exact component={Auth}></Route>
       <Route path={'/Medicine'} exact component={Medicine}></Route>
+      <Route path={'/Refexample'} exact component={Refexample}></Route>
     </Switch>
+    <Footer/>
+
+    {/* <Pass data={getdata}/> */}
     </>
   );
 }

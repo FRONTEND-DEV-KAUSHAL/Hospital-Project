@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Footer(props) {
     return (
@@ -24,6 +25,7 @@ function Footer(props) {
       <a href="#" className="linkedin"><i className="bx bxl-linkedin" /></a>
     </div>
   </div>
+  <Link to="/Refexample">RefExample</Link>
 </footer>
 
     );
