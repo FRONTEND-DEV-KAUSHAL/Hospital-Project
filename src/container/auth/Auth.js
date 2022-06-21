@@ -6,25 +6,41 @@ function Auth(props) {
     let [usertype, setUsertype] = useState('login');
     let [reset, setReset] = useState(false);
 
+    let setschema, setInit;     
+    if (usertype === 'login') {
+        setschema = {
+            email: yup.string().email("Enter valid Email").required("Enter Email id"),
+            password : yup.string().required("Hmmm....Looks Like Your Password is Wrong")     
+        }
 
-    let schema = yup.object().shape({
-        email: yup.string().email("Enter valid Email").required("Enter Email id"),
-        password : yup.string().required("Hmmm....Looks Like Your Password is Wrong")     
-    });
-
-    const formik = useFormik({
-        initialValues: {
+        setInit = {
             email: '',
             password:''
-        },
+        }
+    } else if(usertype === 'signup'){
+        setschema = {
+            name : yup.string().required("Enter Your Name"),
+            email: yup.string().email("Enter valid Email").required("Enter Email id"),
+            password : yup.string().required("Hmmm....Looks Like Your Password is Wrong")     
+        }
+        setInit = {
+            name: '',
+            email: '',
+            password:''
+        }
+    }
 
+    let schema = yup.object().shape(setschema);
+
+    const formik = useFormik({
+        initialValues: setInit,
         validationSchema: schema,
         onSubmit: values => {
             alert(JSON.stringify(values, null, 2));
         },
     });
 
-    const {handleChange , errors , handleSubmit} = formik;
+    const {handleChange , errors , handleSubmit, handleBlur, touched} = formik;
     return (
         <section id="appointment" className="appointment">
             <div className="container">
@@ -50,14 +66,15 @@ function Auth(props) {
                                     null
                                     :
                                     <div className="col-md-4 form-group mt-3 mt-md-0">
-                                        <input type="name" className="form-control" name="name" id="name" placeholder="Your name" data-rule="email" data-msg="Please enter a valid email"  />
+                                        <input type="name" className="form-control" name="name" id="name" placeholder="Your name" data-rule="email" data-msg="Please enter a valid email" onChange={handleChange} onBlur={handleBlur} />
                                         <div className="validate" />
+                                        <p>{errors.name && touched.name ? errors.name : ''}</p>
                                     </div>
                         }
                         <div className="col-md-4 form-group mt-3 mt-md-0">
-                            <input type="email" className="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" onChange={handleChange} />
+                            <input type="email" className="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" onChange={handleChange} onBlur={handleBlur} />
                             <div className="validate" />
-                            <p>{errors.email}</p>
+                            <p>{errors.email && touched.email ? errors.email : ''}</p>
                         </div>
                         
                     </div>
@@ -67,9 +84,9 @@ function Auth(props) {
                                 null
                                 :
                                 <div className="col-md-4 form-group mt-3 mt-md-0">
-                                    <input type="password" className="form-control" name="password" id="password" placeholder="Your password" data-rule="password" data-msg="Please enter a valid password" onChange={handleChange} />
+                                    <input type="password" className="form-control" name="password" id="password" placeholder="Your password" data-rule="password" data-msg="Please enter a valid password" onChange={handleChange} onBlur={handleBlur} />
                                     <div className="validate" />
-                                    <p>{errors.password}</p>
+                                    <p>{errors.password && touched.password ? errors.password : ''}</p>
                                 </div>
                         }
                     </div>
