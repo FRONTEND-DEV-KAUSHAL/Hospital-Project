@@ -57,7 +57,7 @@ function Auth(props) {
                         <div className="col-md-4 form-group mt-3 mt-md-0">
                             <input type="email" className="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" onChange={handleChange} />
                             <div className="validate" />
-                            <p>{errors.email}</p>
+                            <p style={{color:'red'}}>{errors.email}</p>
                         </div>
                         
                     </div>
@@ -69,7 +69,7 @@ function Auth(props) {
                                 <div className="col-md-4 form-group mt-3 mt-md-0">
                                     <input type="password" className="form-control" name="password" id="password" placeholder="Your password" data-rule="password" data-msg="Please enter a valid password" onChange={handleChange} />
                                     <div className="validate" />
-                                    <p>{errors.password}</p>
+                                    <p style={{color:'red'}}>{errors.password}</p>
                                 </div>
                         }
                     </div>
