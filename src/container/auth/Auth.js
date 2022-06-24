@@ -29,14 +29,24 @@ function Auth(props) {
             password:''
         }
     }
+    const getdata = (values) => {
+        let localdata = JSON.parse(localStorage.getItem("user"));
 
+        if(localdata === null){
+            localStorage.setItem("user", JSON.stringify([values]));
+        } else {
+            localdata.push(values);
+            localStorage.setItem("user",JSON.stringify(localdata));
+        }
+    }
     let schema = yup.object().shape(setschema);
 
     const formik = useFormik({
         initialValues: setInit,
         validationSchema: schema,
+        enableReinitialize: true,
         onSubmit: values => {
-            alert(JSON.stringify(values, null, 2));
+           getdata(values);
         },
     });
 
