@@ -29,29 +29,16 @@ function Auth(props) {
             password: ''
         }
     }
-<<<<<<< HEAD
-    const getdata = (values) => {
-        let localdata = JSON.parse(localStorage.getItem("user"));
-
-        if(localdata === null){
-            localStorage.setItem("user", JSON.stringify([values]));
-        } else {
-            localdata.push(values);
-            localStorage.setItem("user",JSON.stringify(localdata));
-        }
-    }
-=======
     let data = [];
->>>>>>> a92ecff80e08fdd008f437f30aebe5f1ea5c3d79
     let schema = yup.object().shape(setschema);
     const getdata = (values) => {
         console.log(values);
         let localdata = JSON.parse(localStorage.getItem("user"));
         if (localdata === null) {
-            localStorage.setItem("user", JSON.stringify([{values}]))
+            localStorage.setItem("user", JSON.stringify([values]))
         } else {
             data.push(values);
-            localStorage.setItem("user", JSON.stringify([{data}]))
+            localStorage.setItem("user", JSON.stringify(data))
         }
 
     }
@@ -60,13 +47,9 @@ function Auth(props) {
         validationSchema: schema,
         enableReinitialize: true,
         onSubmit: values => {
-<<<<<<< HEAD
-           getdata(values);
-=======
             getdata(values);
             localStorage.setItem("user", JSON.stringify(values))
 
->>>>>>> a92ecff80e08fdd008f437f30aebe5f1ea5c3d79
         },
     });
 

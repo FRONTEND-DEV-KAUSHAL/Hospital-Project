@@ -23,7 +23,7 @@ function Appointment(props) {
       alert(JSON.stringify(values, null, 2));
     },
   });
-  const { handlechange , errors, handleBlur, touched} = formik
+  const { handlechange , errors, handleBlur, touched} = formik;
     return (
 <section id="appointment" className="appointment">
   <div className="container">
@@ -32,6 +32,14 @@ function Appointment(props) {
       <p>Aenean enim orci, suscipit vitae sodales ac, semper in ex. Nunc aliquam eget nibh eu euismod. Donec dapibus
         blandit quam volutpat sollicitudin. Fusce tincidunt sit amet ex in volutpat. Donec lacinia finibus tortor.
         Curabitur luctus eleifend odio. Phasellus placerat mi et suscipit pulvinar.</p>
+    </div>
+    <div className='row'>
+        <div className='col-6'>
+          <a className='btn-primary'>
+            Book an Appointment
+          </a>
+        </div>
+        <div className='col-6'></div>
     </div>
     <Formik values={formik}>
       <Form action method="post" role="form" className="php-email-form">
